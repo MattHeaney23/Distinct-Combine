@@ -8,14 +8,14 @@
 import Combine
 import Foundation
 
-class DistinctPublisher: Publisher {
+class DistinctPublisher<OutputType: Hashable>: Publisher {
     
-    typealias Output = Int
+    typealias Output = OutputType
     typealias Failure = Never
     
-    let valuesToEmit: [Int]
+    let valuesToEmit: [OutputType]
     
-    init(valuesToEmit: [Int]) {
+    init(valuesToEmit: [OutputType]) {
         self.valuesToEmit = valuesToEmit
     }
     

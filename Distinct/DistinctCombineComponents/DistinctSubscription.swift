@@ -8,15 +8,15 @@
 import Combine
 import Foundation
 
-class DistinctSubscription<SubscriberType: Subscriber>: Subscription where SubscriberType.Input == Int {
+class DistinctSubscription<SubscriberType: Subscriber, OutputType: Hashable>: Subscription where SubscriberType.Input == OutputType {
     
     var subscriber: SubscriberType?
-    var providedValues: [Int]
+    var providedValues: [OutputType]
     var demand: Subscribers.Demand = .none
     
-    private var previousValues: Set<Int> = []
+    private var previousValues: Set<OutputType> = []
     
-    init(subscriber: SubscriberType, providedValues: [Int]) {
+    init(subscriber: SubscriberType, providedValues: [OutputType]) {
         self.providedValues = providedValues
         self.subscriber = subscriber
     }

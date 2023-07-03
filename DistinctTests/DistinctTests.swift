@@ -10,52 +10,52 @@ import Combine
 import XCTest
 
 final class DistinctTests: XCTestCase {
-    
+        
     func testIntArray() {
-        //Given
-        let startingValues = [1, 2, 3, 4, 1, 4, 5, 5, 5]
-        let publisher = DistinctPublisher(valuesToEmit: startingValues)
-        var valuesEmitted: [Int] = []
-        let distinctValues = [1, 2, 3, 4, 5]
+        assertDistinctSubscriberOutput(startingValues: [1, 2, 3, 4, 1, 4, 5, 5, 5],
+                                       expectedOutput: [1, 2, 3, 4, 5])
+    }
+    
+    func testStringArray() {
+        assertDistinctSubscriberOutput(startingValues: ["A", "B", "C", "C", "B", "C", "D", "A", "D", "D", "E"],
+                                       expectedOutput: ["A", "B", "C", "D", "E"])
+    }
+    
+    func testSingleStringArray() {
+        assertDistinctSubscriberOutput(startingValues: ["A"],
+                                       expectedOutput: ["A"])
+    }
+    
+    func testExtremeStringArray() {
         
-        //When
-        let expectation = XCTestExpectation()
+        let lotsOfAs = [String](repeating: "A", count: 1000)
+        let fewBs = [String](repeating: "B", count: 10)
+        let lotsOfCs = [String](repeating: "C", count: 1000)
         
-        let sub = DistinctSubscriber { completion in
-            expectation.fulfill()
-        } onReceived: { value in
-            valuesEmitted.append(value)
-        }
+        let startingValues: [String] = lotsOfAs + fewBs + lotsOfCs
         
-        publisher.subscribe(sub)
-
-        // Then
-        wait(for: [expectation], timeout: 0.2)
-        
-        XCTAssertEqual(valuesEmitted, distinctValues)
+        assertDistinctSubscriberOutput(startingValues: startingValues,
+                                       expectedOutput: ["A", "B", "C"])
     }
     
     func testEmptyArray() {
+        assertDistinctSubscriberOutput(startingValues: [Int](),
+                                       expectedOutput: [Int]())
+    }
+    
+    private func assertDistinctSubscriberOutput<T: Hashable>(startingValues: [T], expectedOutput: [T]) {
         //Given
-        let startingValues: [Int] = []
         let publisher = DistinctPublisher(valuesToEmit: startingValues)
-        var valuesEmitted: [Int] = []
-        let distinctValues: [Int] = []
+        var valuesEmitted: [T] = []
         
-        //When
-        let expectation = XCTestExpectation()
-        
+        //When, and Then
         let sub = DistinctSubscriber { completion in
-            expectation.fulfill()
+            XCTAssertEqual(valuesEmitted, expectedOutput)
         } onReceived: { value in
             valuesEmitted.append(value)
         }
         
         publisher.subscribe(sub)
 
-        // Then
-        wait(for: [expectation], timeout: 0.2)
-        
-        XCTAssertEqual(valuesEmitted, distinctValues)
     }
 }

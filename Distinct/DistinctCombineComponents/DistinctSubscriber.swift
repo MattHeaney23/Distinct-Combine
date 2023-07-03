@@ -8,9 +8,9 @@
 import Combine
 import Foundation
 
-class DistinctSubscriber: Subscriber, Cancellable {
+class DistinctSubscriber<InputType: Hashable>: Subscriber, Cancellable {
     
-    typealias Input = Int
+    typealias Input = InputType
     typealias Failure = Never
     
     var onReceived: ((Input) -> ())
