@@ -8,16 +8,17 @@
 import Combine
 import Foundation
 
-class DistinctSubscriber: Subscriber {
+class DistinctSubscriber: Subscriber, Cancellable {
     
     typealias Input = Int
     typealias Failure = Never
     
     var onReceived: ((Input) -> ())
     var onCompletion: ((Subscribers.Completion<Failure>) -> ())
+    private var subscription: Subscription?
     
-    init(onReceived: @escaping (Input) -> Void,
-         onCompletion: @escaping (Subscribers.Completion<Failure>) -> Void) {
+    init(onCompletion: @escaping (Subscribers.Completion<Failure>) -> Void,
+         onReceived: @escaping (Input) -> Void) {
         self.onReceived = onReceived
         self.onCompletion = onCompletion
     }
@@ -28,10 +29,15 @@ class DistinctSubscriber: Subscriber {
     }
     
     func receive(subscription: Subscription) {
+        self.subscription = subscription
         subscription.request(.max(1))
     }
     
     func receive(completion: Subscribers.Completion<Failure>) {
         self.onCompletion(completion)
+    }
+    
+    func cancel() {
+       self.subscription = nil
     }
 }

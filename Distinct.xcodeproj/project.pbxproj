@@ -14,7 +14,18 @@
 		DE6CDDB92A531E0E00E1D4DD /* DistinctSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDDB62A531E0E00E1D4DD /* DistinctSubscriber.swift */; };
 		DE6CDDBA2A531E0E00E1D4DD /* DistinctSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDDB72A531E0E00E1D4DD /* DistinctSubscription.swift */; };
 		DE6CDDBB2A531E0E00E1D4DD /* DistinctPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDDB82A531E0E00E1D4DD /* DistinctPublisher.swift */; };
+		DE6CDDC32A531F7C00E1D4DD /* DistinctTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDDC22A531F7C00E1D4DD /* DistinctTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE6CDDC42A531F7C00E1D4DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE6CDD9A2A531DED00E1D4DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE6CDDA12A531DED00E1D4DD;
+			remoteInfo = Distinct;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DE6CDDA22A531DED00E1D4DD /* Distinct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Distinct.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,10 +36,19 @@
 		DE6CDDB62A531E0E00E1D4DD /* DistinctSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistinctSubscriber.swift; sourceTree = "<group>"; };
 		DE6CDDB72A531E0E00E1D4DD /* DistinctSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistinctSubscription.swift; sourceTree = "<group>"; };
 		DE6CDDB82A531E0E00E1D4DD /* DistinctPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistinctPublisher.swift; sourceTree = "<group>"; };
+		DE6CDDC02A531F7C00E1D4DD /* DistinctTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DistinctTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE6CDDC22A531F7C00E1D4DD /* DistinctTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DE6CDD9F2A531DED00E1D4DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE6CDDBD2A531F7C00E1D4DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6CDDA42A531DED00E1D4DD /* Distinct */,
+				DE6CDDC12A531F7C00E1D4DD /* DistinctTests */,
 				DE6CDDA32A531DED00E1D4DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6CDDA22A531DED00E1D4DD /* Distinct.app */,
+				DE6CDDC02A531F7C00E1D4DD /* DistinctTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +106,14 @@
 			path = DistinctCombineComponents;
 			sourceTree = "<group>";
 		};
+		DE6CDDC12A531F7C00E1D4DD /* DistinctTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE6CDDC22A531F7C00E1D4DD /* DistinctTests.swift */,
+			);
+			path = DistinctTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,6 +134,24 @@
 			productReference = DE6CDDA22A531DED00E1D4DD /* Distinct.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DE6CDDBF2A531F7C00E1D4DD /* DistinctTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE6CDDC82A531F7C00E1D4DD /* Build configuration list for PBXNativeTarget "DistinctTests" */;
+			buildPhases = (
+				DE6CDDBC2A531F7C00E1D4DD /* Sources */,
+				DE6CDDBD2A531F7C00E1D4DD /* Frameworks */,
+				DE6CDDBE2A531F7C00E1D4DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE6CDDC52A531F7C00E1D4DD /* PBXTargetDependency */,
+			);
+			name = DistinctTests;
+			productName = DistinctTests;
+			productReference = DE6CDDC02A531F7C00E1D4DD /* DistinctTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -116,6 +164,10 @@
 				TargetAttributes = {
 					DE6CDDA12A531DED00E1D4DD = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					DE6CDDBF2A531F7C00E1D4DD = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DE6CDDA12A531DED00E1D4DD;
 					};
 				};
 			};
@@ -133,6 +185,7 @@
 			projectRoot = "";
 			targets = (
 				DE6CDDA12A531DED00E1D4DD /* Distinct */,
+				DE6CDDBF2A531F7C00E1D4DD /* DistinctTests */,
 			);
 		};
 /* End PBXProject section */
@@ -144,6 +197,13 @@
 			files = (
 				DE6CDDAD2A531DEE00E1D4DD /* Preview Assets.xcassets in Resources */,
 				DE6CDDAA2A531DEE00E1D4DD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE6CDDBE2A531F7C00E1D4DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +222,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE6CDDBC2A531F7C00E1D4DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE6CDDC32A531F7C00E1D4DD /* DistinctTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE6CDDC52A531F7C00E1D4DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE6CDDA12A531DED00E1D4DD /* Distinct */;
+			targetProxy = DE6CDDC42A531F7C00E1D4DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DE6CDDAE2A531DEE00E1D4DD /* Debug */ = {
@@ -337,6 +413,42 @@
 			};
 			name = Release;
 		};
+		DE6CDDC62A531F7C00E1D4DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KRYV463YVC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MattHeaney.DistinctTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Distinct.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Distinct";
+			};
+			name = Debug;
+		};
+		DE6CDDC72A531F7C00E1D4DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KRYV463YVC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MattHeaney.DistinctTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Distinct.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Distinct";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -354,6 +466,15 @@
 			buildConfigurations = (
 				DE6CDDB12A531DEE00E1D4DD /* Debug */,
 				DE6CDDB22A531DEE00E1D4DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE6CDDC82A531F7C00E1D4DD /* Build configuration list for PBXNativeTarget "DistinctTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE6CDDC62A531F7C00E1D4DD /* Debug */,
+				DE6CDDC72A531F7C00E1D4DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

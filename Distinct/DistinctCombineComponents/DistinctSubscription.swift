@@ -45,7 +45,6 @@ class DistinctSubscription<SubscriberType: Subscriber>: Subscription where Subsc
         }
     }
     
-    
     func cancel() {
         subscriber = nil
     }
